@@ -1,14 +1,9 @@
-import Router from "@koa/router";
 import Koa from "koa";
+import koaBody from "koa-body";
 
-export const makeServer = ({
-  healthRouter,
-}: {
-  healthRouter: Router<any, any>;
-}) => {
+export const makeServer = () => {
   const server = new Koa();
-
-  server.use(healthRouter.routes()).use(healthRouter.allowedMethods());
+  server.use(koaBody());
 
   return server;
 };
