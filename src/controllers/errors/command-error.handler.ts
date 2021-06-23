@@ -10,6 +10,7 @@ export const CommandErrorHandler = (
   const code = err.code;
 
   switch (code) {
+    case Codes.TAG_NAME_ALREADY_REGISTERED:
     case Codes.EMAIL_ALREADY_REGISTERED:
       ctx.status = 409;
       break;

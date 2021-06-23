@@ -5,7 +5,7 @@ import { DbUser } from "../entities/db-user";
 export class UsersRepository {
   private repository: Repository<DbUser>;
 
-  constructor(private conn: Connection) {
+  constructor(conn: Connection) {
     this.repository = conn.getRepository(DbUser);
   }
 

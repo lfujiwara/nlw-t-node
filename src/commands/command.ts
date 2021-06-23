@@ -10,4 +10,5 @@ export class CommandError extends Error {
 
 export const CommandErrorCodes = {
   EMAIL_ALREADY_REGISTERED: "EMAIL_ALREADY_REGISTERED",
+  TAG_NAME_ALREADY_REGISTERED: "TAG_NAME_ALREADY_REGISTERED",
 };

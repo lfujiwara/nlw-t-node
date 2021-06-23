@@ -25,6 +25,7 @@ describe("Add user", () => {
     const koa = makeServer();
     conn = await makeConnection({
       entities: [DbUser],
+      synchronize: true,
     });
     const usersRouter = makeUsersRouter(conn);
 
@@ -44,7 +45,8 @@ describe("Add user", () => {
   afterAll(async () => {
     const repository = conn.getRepository(DbUser);
     await repository.delete({});
-    server.close();
+    await conn.close();
+    await server.close();
   });
 
   test("Returns OK on valid user", async () => {
