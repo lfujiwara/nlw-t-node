@@ -5,7 +5,7 @@ import { CommandErrorCodes as Codes } from "../../commands/command";
 export const CommandErrorHandler = (
   err: CommandError,
   ctx: Context,
-  next: Next
+  next?: Next
 ) => {
   const code = err.code;
 
@@ -17,5 +17,5 @@ export const CommandErrorHandler = (
       ctx.status = 500;
   }
 
-  next();
+  next && next();
 };
